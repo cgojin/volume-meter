@@ -1,3 +1,8 @@
+import './main.css'
+
+// for vite build, https://vitejs.dev/guide/assets.html#importing-asset-as-url
+import vumeter from './vumeter.js?url'
+
 /** Declare a context for AudioContext object */
 let audioContext
 // Creating a list of colors for led
@@ -57,7 +62,7 @@ async function onMicrophoneGranted(stream) {
 
         // Adding an AudioWorkletProcessor
         // from another script with addModule method
-        await audioContext.audioWorklet.addModule('js/vumeter.js')
+        await audioContext.audioWorklet.addModule(vumeter)
 
         // Creating a MediaStreamSource object
         // and sending a MediaStream object granted by 
